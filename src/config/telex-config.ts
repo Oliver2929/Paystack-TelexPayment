@@ -70,7 +70,7 @@ export const getIntegrationJson = (req: Request, res: Response) => {
         },
       ],
       target_url: "https://paystack-url-webhook.onrender.com/paystack-webhook",
-      tick_url: "${baseUrl}/paystack-payments",
+      tick_url: "https://paystack-telexpayment.onrender.com/paystack/tick",
     },
   };
 
