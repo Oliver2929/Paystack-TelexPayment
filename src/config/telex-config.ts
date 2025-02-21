@@ -1,8 +1,6 @@
 import { Request, Response } from "express";
 
 export const getIntegrationJson = (req: Request, res: Response) => {
-  const baseUrl = req.protocol + "://" + req.get("host");
-
   const telexAppData = {
     data: {
       date: {
@@ -12,9 +10,9 @@ export const getIntegrationJson = (req: Request, res: Response) => {
       descriptions: {
         app_name: "telex-paystack-notification",
         app_description:
-          "A  telex feature that entails getting notifications on revenue reports, chargebacks and failed payments",
+          "A  telex feature that entails getting notifications on payment succesful reports, chargebacks and failed payments",
         app_logo: "https://paystack-to-telex-app.onrender.com",
-        app_url: "https://paystack-to-telex-app.onrender.com",
+        app_url: "https://paystack-telexpayment.onrender.com/paystack",
         background_color: "#fff",
       },
       is_active: true,
@@ -47,8 +45,8 @@ export const getIntegrationJson = (req: Request, res: Response) => {
           label: "event type",
           type: "dropdown",
           required: true,
-          default: "revenue-reports",
-          options: ["revenue-reports", "chargebacks", "failed-payments"],
+          default: "success",
+          options: ["success", "failed", "cashback"],
         },
         {
           label: "message",

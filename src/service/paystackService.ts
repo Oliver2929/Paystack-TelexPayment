@@ -3,22 +3,22 @@ import axios from "axios";
 // Mock Payment Data
 const mockPaymentData = [
   {
+    message: "Payment was successful",
+    username: "Oliii",
     event_name: "payment_event",
     status: "success",
-    message: "Payment was successful",
-    username: "john_doe",
   },
   {
+    message: "Payment failed",
+    username: "Oliii",
     event_name: "payment_event",
     status: "failed",
-    message: "Payment failed",
-    username: "jane_doe",
   },
   {
+    message: "Cashback processed",
+    username: "Oliii",
     event_name: "payment_event",
     status: "cashback",
-    message: "Cashback processed",
-    username: "doe_john",
   },
 ];
 
