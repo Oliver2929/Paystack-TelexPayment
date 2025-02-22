@@ -53,3 +53,8 @@ npm install
 }
 ]
 }
+
+## Screenshot of response
+
+![Response Screenshot](./images/referenceimage.png)
+![Response Screenshot](./images/responseimage2.png)
