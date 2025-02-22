@@ -56,5 +56,6 @@ npm install
 
 ## Screenshot of response
 
-![Response Screenshot](./images/referenceimage.png)
-![Response Screenshot](./images/responseimage2.png)
+- ![Response Screenshot](<./images/response-img-2telex%20(1).png>)
+
+- ![Response Screenshot](./images/response-img-telex1.png)
