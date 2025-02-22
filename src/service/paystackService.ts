@@ -3,22 +3,22 @@ import axios from "axios";
 // Mock Payment Data
 const mockPaymentData = [
   {
+    event_name: "payment_event",
     message: "Payment was successful",
-    username: "Oliii",
-    event_name: "payment_event",
     status: "success",
+    username: "Oliii",
   },
   {
+    event_name: "payment_event",
     message: "Payment failed",
-    username: "Oliii",
-    event_name: "payment_event",
     status: "failed",
+    username: "Oliii",
   },
   {
-    message: "Cashback processed",
-    username: "Oliii",
     event_name: "payment_event",
+    message: "Cashback processed",
     status: "cashback",
+    username: "Oliii",
   },
 ];
 
@@ -29,14 +29,12 @@ export const sendResultToReturnUrl = async (
   result: object
 ) => {
   try {
-    const structuredResult = { data: result };
+    // const structuredResult = { data: result };
 
-    await axios.post(returnUrl, structuredResult, {
+    await axios.post(returnUrl, result, {
       headers: { "Content-Type": "application/json" },
     });
-    console.log(
-      `Sent result to return URL: ${JSON.stringify(structuredResult)}`
-    );
+    console.log(`Sent result to return URL: ${JSON.stringify(result)}`);
   } catch (error: unknown) {
     console.error(`Error sending result to return URL: ${handleError(error)}`);
   }
