@@ -11,14 +11,15 @@ export const getIntegrationJson = (req: Request, res: Response) => {
         app_name: "telex-paystack-notification",
         app_description:
           "A  telex feature that entails getting notifications on payment succesful reports, chargebacks and failed payments",
-        app_logo: "https://paystack-to-telex-app.onrender.com",
+        app_logo:
+          "https://fonts.gstatic.com/s/i/materialicons/account_balance/v6/24px.svg",
         app_url: "https://paystack-telexpayment.onrender.com/paystack",
         background_color: "#fff",
       },
       is_active: true,
       integration_type: "interval",
       key_features: [
-        "real time updates on revenue reports. chargebacks and failed payments",
+        " updates on succesful payments, chargebacks and failed payments",
       ],
       integration_category: "Finance & Payments",
       author: "Ademola",
@@ -67,7 +68,7 @@ export const getIntegrationJson = (req: Request, res: Response) => {
           default: "*/10 * * * *",
         },
       ],
-      target_url: "https://paystack-url-webhook.onrender.com/paystack-webhook",
+      target_url: "https://paystack-telexpayment.onrender.com/paystack",
       tick_url: "https://paystack-telexpayment.onrender.com/paystack/tick",
     },
   };

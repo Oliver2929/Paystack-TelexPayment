@@ -4,16 +4,17 @@ import axios from "axios";
 const mockPaymentData = [
   {
     event_name: "payment_event",
-    message: "Payment was successful",
-    status: "success",
-    username: "Oliii",
-  },
-  {
-    event_name: "payment_event",
     message: "Payment failed",
     status: "failed",
     username: "Oliii",
   },
+  {
+    event_name: "payment_event",
+    message: "Payment was successful",
+    status: "success",
+    username: "Oliii",
+  },
+
   {
     event_name: "payment_event",
     message: "Cashback processed",
