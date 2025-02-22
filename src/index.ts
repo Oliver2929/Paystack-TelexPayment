@@ -19,7 +19,6 @@ app.use((err: any, req: any, res: any, next: any) => {
   res.status(500).send({ message: "Something went wrong!" });
 });
 
-// Start the server
 const PORT = process.env.PORT || 8000;
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);

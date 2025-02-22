@@ -4,7 +4,6 @@ import { processPaymentSequence } from "../service/paystackService";
 export const verifyPaymentHandler = async (req: Request, res: Response) => {
   const { channel_id, return_url, settings } = req.body;
 
-  // Validation
   if (!channel_id || !return_url || !settings || settings.length === 0) {
     return res.status(400).json({
       message: "Invalid payload, missing required fields.",
