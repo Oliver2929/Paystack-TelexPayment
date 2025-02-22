@@ -1,9 +1,10 @@
 import { Request, Response } from "express";
-import { processPaymentSequence } from "../service/paystackService";
+import { processPaymentSequence } from "../service/paystackService"; // Ensure this imports the service correctly
 
 export const verifyPaymentHandler = async (req: Request, res: Response) => {
   const { channel_id, return_url, settings } = req.body;
 
+  // Validation of payload
   if (!channel_id || !return_url || !settings || settings.length === 0) {
     return res.status(400).json({
       message: "Invalid payload, missing required fields.",
@@ -11,6 +12,7 @@ export const verifyPaymentHandler = async (req: Request, res: Response) => {
   }
 
   try {
+    // Process the payment sequence with the given return URL
     await processPaymentSequence(return_url);
 
     return res.json({
