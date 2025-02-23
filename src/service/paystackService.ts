@@ -1,6 +1,5 @@
 import axios from "axios";
 
-// Mock Payment Data
 const mockPaymentData = [
   {
     event_name: "payment_event",
@@ -14,7 +13,6 @@ const mockPaymentData = [
     status: "success",
     username: "Oliii",
   },
-
   {
     event_name: "payment_event",
     message: "Cashback processed",
@@ -23,15 +21,11 @@ const mockPaymentData = [
   },
 ];
 
-let currentSequenceIndex = 0;
-
 export const sendResultToReturnUrl = async (
   returnUrl: string,
   result: object
 ) => {
   try {
-    // const structuredResult = { data: result };
-
     await axios.post(returnUrl, result, {
       headers: { "Content-Type": "application/json" },
     });
@@ -49,11 +43,8 @@ const handleError = (error: unknown) => {
 };
 
 export const processPaymentSequence = async (returnUrl: string) => {
-  const paymentData = mockPaymentData[currentSequenceIndex];
-
-  await sendResultToReturnUrl(returnUrl, paymentData);
-
-  currentSequenceIndex = (currentSequenceIndex + 1) % mockPaymentData.length;
-
-  console.log(`Sent data: ${paymentData.status}`);
+  for (const paymentData of mockPaymentData) {
+    await sendResultToReturnUrl(returnUrl, paymentData);
+    console.log(`Sent data: ${paymentData.status}`);
+  }
 };
