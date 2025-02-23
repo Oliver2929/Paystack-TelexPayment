@@ -1,5 +1,6 @@
 import axios from "axios";
 
+// Mock Payment Data
 const mockPaymentData = [
   {
     event_name: "payment_event",
@@ -13,6 +14,7 @@ const mockPaymentData = [
     status: "success",
     username: "Oliii",
   },
+
   {
     event_name: "payment_event",
     message: "Cashback processed",
@@ -20,6 +22,8 @@ const mockPaymentData = [
     username: "Oliii",
   },
 ];
+
+let currentSequenceIndex = 0;
 
 export const sendResultToReturnUrl = async (
   returnUrl: string,
@@ -43,8 +47,11 @@ const handleError = (error: unknown) => {
 };
 
 export const processPaymentSequence = async (returnUrl: string) => {
-  for (const paymentData of mockPaymentData) {
-    await sendResultToReturnUrl(returnUrl, paymentData);
-    console.log(`Sent data: ${paymentData.status}`);
-  }
+  const paymentData = mockPaymentData[currentSequenceIndex];
+
+  await sendResultToReturnUrl(returnUrl, paymentData);
+
+  currentSequenceIndex = (currentSequenceIndex + 1) % mockPaymentData.length;
+
+  console.log(`Sent data: ${paymentData.status}`);
 };
