@@ -46,8 +46,8 @@ export const getIntegrationJson = (req: Request, res: Response) => {
           label: "event type",
           type: "dropdown",
           required: true,
-          default: "success",
-          options: ["success", "failed", "cashback"],
+          default: "all",
+          options: ["all", "success", "failed", "cashback"],
         },
         {
           label: "message",
